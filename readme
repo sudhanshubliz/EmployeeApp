@@ -1,0 +1,5 @@
+READ ME:
+This is a REST based CRUD Employee Application.
+
+Test and run the API:
+http://localhost:8080/swagger-ui.html#/
