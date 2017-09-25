@@ -10,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
 import com.infoapp.entity.Employee;
 import com.infoapp.service.EmployeeInfoService;
 
+import springfox.documentation.builders.ApiInfoBuilder;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
@@ -38,24 +39,25 @@ public class EmployeeAppApplication {
 		
 		
 	}
-	 private ApiInfo metaData() {
-	        ApiInfo apiInfo = new ApiInfo(
-	                "Spring Boot REST API",
-	                "Spring Boot REST API for Employee APP",
-	                "1.0",
-	                "Terms of service",
-	                new Contact("Sudhanshu Thakur", "https://localhost:8080/", "sudhanshu.thakur@capgemini.com"),
-	               "Apache License Version 2.0",
-	                "https://www.apache.org/licenses/LICENSE-2.0", null);
-	        return apiInfo;
+ 	private ApiInfo metaData() {
+		 
+		 return new ApiInfoBuilder()
+	                .title("Spring REST Sample with Swagger")
+	                .description("Spring REST Sample with Swagger")
+	                .termsOfServiceUrl("https://github.com/sudhanshubliz")
+	                .contact(new Contact("name", "url", "email"))
+	                .license("Apache License Version 2.0")
+	                .licenseUrl("https://github.com/sudhanshubliz/EmployeeApp")
+	                .version("2.0")
+	                .build();
+		  
 	    }
 	 
 	    public Docket employeeApi() {
 	        return new Docket(DocumentationType.SWAGGER_2)
-	                .select()
+	        		.select()
 	                .apis(RequestHandlerSelectors.basePackage("com.infoapp.controller"))
 	                .paths(regex("/employee.*"))
-	                .build()
-	                .apiInfo(metaData());
+	                .build().apiInfo(metaData()) ;
 	    }
 }

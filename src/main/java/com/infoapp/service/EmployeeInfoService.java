@@ -42,7 +42,7 @@ public class EmployeeInfoService {
 	public Employee updateEmployee(Long id, Employee employee) {
 		// TODO Auto-generated method stub
 		Employee employeeFromDb = employeeInfoRepository.findOne(id);
-		Employee updatedemployee = employeeInfoRepository.save(employeeFromDb);
+		Employee updatedemployee = employeeInfoRepository.save(employee);
 		
 		return updatedemployee;
 	}

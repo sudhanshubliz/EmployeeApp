@@ -21,28 +21,28 @@ public class EmployeeInfoController {
 	  private EmployeeInfoService employeeInfoService;
 		 
 	
-	@PostMapping(value="/employee/createmployee/create")
+	@PostMapping(value="/employee/create")
 	public Employee createEmployee(@RequestBody Employee employee){
 		return employeeInfoService.createmployee(employee);
 	}
 	
-	@GetMapping(value="/employee/getEmployeeById/{id}")
+	@GetMapping(value="/employee/{id}")
  	public Employee getEmployeeById(@PathVariable("id")Long id){
 		return employeeInfoService.getEmployeeById(id);
 	}
 	
 
-	@GetMapping(value="/employee/getAllEmployeeInfo/allemployees")
+	@GetMapping(value="/employee/allemployees")
 	public Iterable<Employee> getAllEmployeeInfo(){
 		return employeeInfoService.getAllEmployeeInfo();
 	}
 	
-	@DeleteMapping(value="/employee/deleteEmployee/{id}")
+	@DeleteMapping(value="/employee/{id}")
 	public void deleteTicket(@PathVariable("id")Long id){
 		employeeInfoService.deleteEmployee(id);
 	}
 	
-	@PutMapping(value="/employee/updateEmployee/{id}")
+	@PutMapping(value="/employee/{id}")
 	public Employee updateTicket(@PathVariable("id")Long id,@RequestBody Employee employee){
 		return employeeInfoService.updateEmployee(id,employee);
 	}
